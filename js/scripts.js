@@ -2,12 +2,56 @@
 let allPizzas = [];
 
 //The pizza object
-function pizza(size, sauce, toppings, dressing) {
+function Pizza(size, sauce, toppings, dressing) {
     this.size = size;
     this.sauce = sauce;
     this.toppings = toppings;
     this.dressing = dressing;
   }
+
+Pizza.prototype.price = function()
+{
+    let cash = parseInt[3]
+
+
+}
+
+Pizza.prototype.nope = function()
+{
+        let newTop = []
+        let lastTop = "n"
+        for (i = 0; i < this.toppings.length; i++)
+        {
+            if (this.toppings[i].charAt(0) === "N" && this.toppings[i].charAt(1) === "o")
+            {
+    
+            }
+            else if (this.toppings[i] === lastTop)
+            {
+                newTop.pop
+                
+                newTop.push("Extra " + this.toppings[i])
+            }
+            else
+            {
+                newTop.push(this.toppings[i])
+            }
+        lastTop = this.toppings[i];
+        }
+    toppings = newTop;
+    console.log(toppings);
+    
+}
+
+function orderUp(allPizzas)
+{
+    let output = "You Ordered " + allPizzas.length + " Pizzas.";
+
+    for (i = 0; i < allPizzas.length; i++)
+    {
+        allPizzas[i].nope()
+    }
+}
 
 
   //UI logic
@@ -33,6 +77,8 @@ function runapp()
   const veggietwo = document.getElementById("VeggieTwobtn");
   const herbs = document.getElementById("Herbsbtn");
   const dressing = document.getElementById("Dressingbtn");
+  const checkoutCall =  document.getElementById("Checkoutbtn");
+  const newpizzabtn = document.getElementById("newpizzabtn")
 
   //These are the divs that handle each part of the order. C stands for class, even though I ended up using ids instead, I wanted to use I for input.
   const sizeC = document.getElementById("sizeC");
@@ -46,6 +92,7 @@ function runapp()
   const herbsC = document.getElementById("herbsC");
   const dressingC = document.getElementById("dressingC");
   const finalC = document.getElementById("finalC");
+  const mainC = document.getElementById("main");
 
 
 
@@ -62,12 +109,16 @@ function runapp()
   veggietwo.addEventListener("click", veggieTwoStuff)
   herbs.addEventListener("click", herbsStuff)
   dressing.addEventListener("click", dressingStuff)
+  checkoutCall.addEventListener("click", checkout)
+  newpizzabtn.addEventListener("click", newpizza)
 
 
   //These are the functions that handle calling the toggler for various things. Im not quite sure why I cant just call it with the event listener directly though, if I could get some feedback on that it would be greatly appreciated
   function sizePicker()
   {
     toggler(sizeC)
+    mainC.style.visibility  = "visible";
+    toggler(mainC)
   }
 
     //These are the functions that give actual values to the Ls
@@ -165,9 +216,23 @@ function dressingStuff()
     dressingL = document.getElementById("dressingI").options[document.getElementById("dressingI").selectedIndex].value;
   toggler(dressingC)
   toggler(finalC)
-    console.log(toppingsL)
 }
 
+function newpizza()
+{
+    nextPizza = new Pizza(sizeL, sauceL, toppingsL, dressingL);
+    allPizzas.push(nextPizza)
+    toggler(finalC)
+    toggler(sizeC)
+}
+
+function checkout()
+{
+    nextPizza = new Pizza(sizeL, sauceL, toppingsL, dressingL);
+    allPizzas.push(nextPizza)
+    orderUp(allPizzas)
+    toggler(finalC)
+}
  
 
   function toggler(element)
