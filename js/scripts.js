@@ -7,11 +7,13 @@ function Pizza(size, sauce, toppings, dressing) {
     this.sauce = sauce;
     this.toppings = toppings;
     this.dressing = dressing;
+    this.cost = 0;
   }
 
 Pizza.prototype.money = function()
 {
-    let cash = 3;
+    let cash = parseInt(3);
+    typeof(cash)
 
     cash += this.toppings.length;
 
@@ -28,10 +30,7 @@ Pizza.prototype.money = function()
         cash *= 1.25;
     }
     cash *= 1.10
-    console.log(cash)
-    returnCash = cash.toFixed(2);
-    //for tax
-    return returnCash;
+    this.cost = cash.toFixed(2);
 }
 
 Pizza.prototype.nope = function()
@@ -58,7 +57,6 @@ Pizza.prototype.nope = function()
         lastTop = this.toppings[i];
         }
     toppings = newTop;
-    
 }
 
 Pizza.prototype.sorter = function()
@@ -79,9 +77,12 @@ function orderUp(allPizzas)
 
     for (i = 0; i < allPizzas.length; i++)
     {
+        console.log( allPizzas[i])
+        //extremely weird issue here, for some reason using this method is making allPizzas[i] undefined. 
         allPizzas[i].nope()
-        price += parseFloat(allPizzas[i].money());
-
+        //allPizzas[i].money()
+        //price += allPizzas[i].cost;
+        console.log( allPizzas[i])
         output = output + ("\n A " + allPizzas[i].size + " " + allPizzas[i].sauce + " pizza with " + allPizzas[i].toppings + " with " + allPizzas[i].dressing + " on top");
     }
     output += ("\n The total price is $" + price + "\n Thank you for dining with us.")
@@ -129,10 +130,6 @@ function runapp()
   const dressingC = document.getElementById("dressingC");
   const finalC = document.getElementById("finalC");
   const mainC = document.getElementById("main");
-
-
-
-
 
   order.addEventListener("click", sizePicker);
   size.addEventListener("click", sizeStuff)
