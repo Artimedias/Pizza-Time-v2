@@ -19,7 +19,7 @@ function runapp()
   let toppingsL = [];
   let dressingL;
 
-  const order = document.getElementById("Order");
+  const order = document.getElementById("Orderbtn");
   const size = document.getElementById("Size");
   const sauce = document.getElementById("Sauce");
   const cheese = document.getElementById("Cheese");
@@ -31,12 +31,38 @@ function runapp()
   const herbs = document.getElementById("Herbs");
   const dressing = document.getElementById("Dressing");
 
+  const sizeC = document.getElementById("sizeC");
+  const sauceC = document.getElementById("sauceC");
+  const cheeseC = document.getElementById("cheeseC");
+  const cheesetwoC = document.getElementById("cheesetwoC");
+  const meatC = document.getElementById("meatC");
+  const meattwoC = document.getElementById("meattwoC");
+  const veggieC = document.getElementById("veggieC");
+  const veggietwoC = document.getElementById("veggietwoC");
+  const herbsC = document.getElementById("herbsC");
+  const dressingC = document.getElementById("dressingC");
 
 
-  order.addEventListener("click", sizePicker());
+
+  order.addEventListener("click", sizePicker);
 
   function sizePicker()
   {
-    console.log("Working!")
+    toggler(sizeC)
+    //sizeC.style.visibility = "visible";
+  }
+
+  function toggler(element)
+  {
+    console.log(element);
+    console.log(element.style.visibility)
+    if(element.style.visibility  === "collapse")
+    {
+        console.log("reached!")
+        element.style.visibility  = "visible";
+    }else{
+        element.style.visibility  = "collapse";
+        console.log("reached! - bad")
+    }
   }
 }

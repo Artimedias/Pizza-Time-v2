@@ -1,43 +1,43 @@
-.sizeC {
-    display: none;
+#sizeC {
+    visibility: collapse;
   }
   
-.sauceC {
-    display: none;
+#sauceC {
+     visibility: collapse;
   }
   
-.cheeseC {
-    display: none;
+#cheeseC {
+     visibility: collapse;
   }
   
-.cheesetwoC {
-    display: none;
+#cheesetwoC {
+     visibility: collapse;
   }
   
-.meatC {
-    display: none;
+#meatC {
+     visibility: collapse;
   }
   
-.meatwoC {
-    display: none;
+#meattwoC {
+     visibility: collapse;
   }
   
-.veggiesC {
-    display: none;
+#veggieC {
+     visibility: collapse;
   }
   
-.veggiestwoC {
-    display: none;
+#veggietwoC {
+     visibility: collapse;
   }
   
-.herbsC {
-    display: none;
+#herbsC {
+     visibility: collapse;
   }
   
-.dressingC {
-    display: none;
+#dressingC {
+     visibility: collapse;
   }
   
-.finalC {
-    display: none;
+#finalC {
+     visibility: collapse;
   }
