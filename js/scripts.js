@@ -9,11 +9,29 @@ function Pizza(size, sauce, toppings, dressing) {
     this.dressing = dressing;
   }
 
-Pizza.prototype.price = function()
+Pizza.prototype.money = function()
 {
-    let cash = parseInt[3]
+    let cash = 3;
 
+    cash += this.toppings.length;
 
+    if (this.size === "Mini")
+    {
+        cash *= .75;
+    }
+    else if (this.size === "Mega")
+    {
+        cash *= 1.5;
+    }
+    else if (this.size === "Gluten Free")
+    {
+        cash *= 1.25;
+    }
+    cash *= 1.10
+    console.log(cash)
+    returnCash = cash.toFixed(2);
+    //for tax
+    return returnCash;
 }
 
 Pizza.prototype.nope = function()
@@ -28,6 +46,7 @@ Pizza.prototype.nope = function()
             }
             else if (this.toppings[i] === lastTop)
             {
+                //This pop isnt doing anything, would like some help in figuring out why
                 newTop.pop
                 
                 newTop.push("Extra " + this.toppings[i])
@@ -39,18 +58,35 @@ Pizza.prototype.nope = function()
         lastTop = this.toppings[i];
         }
     toppings = newTop;
-    console.log(toppings);
     
+}
+
+Pizza.prototype.sorter = function()
+{
+    let pizzaString = ""
+    for( i = 1; i < this.toppings.length; i++)
+    {
+            pizzaString = pizzaString.concat(element);
+            pizzaString += ", ";
+    }
+    toppings = pizzaString;
 }
 
 function orderUp(allPizzas)
 {
     let output = "You Ordered " + allPizzas.length + " Pizzas.";
+    let price = 0
 
     for (i = 0; i < allPizzas.length; i++)
     {
         allPizzas[i].nope()
+        price += parseFloat(allPizzas[i].money());
+
+        output = output + ("\n A " + allPizzas[i].size + " " + allPizzas[i].sauce + " pizza with " + allPizzas[i].toppings + " with " + allPizzas[i].dressing + " on top");
     }
+    output += ("\n The total price is $" + price + "\n Thank you for dining with us.")
+    console.log(output)
+
 }
 
 
