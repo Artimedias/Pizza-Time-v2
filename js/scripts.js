@@ -14,13 +14,23 @@ function pizza(size, sauce, toppings, dressing) {
   window.addEventListener("load", runapp);
 function runapp() 
 {
-  let size;
-  let sauce;
-  let toppings = [];
-  let dressing;
+  let sizeL;
+  let sauceL;
+  let toppingsL = [];
+  let dressingL;
 
   const order = document.getElementById("Order");
-  console.log( document.getElementById("Order"));
+  const size = document.getElementById("Size");
+  const sauce = document.getElementById("Sauce");
+  const cheese = document.getElementById("Cheese");
+  const cheesetwo = document.getElementById("CheeseTwo");
+  const meat = document.getElementById("Meat");
+  const meattwo = document.getElementById("MeatTwo");
+  const veggie = document.getElementById("Veggie");
+  const veggietwo = document.getElementById("VeggieTwo");
+  const herbs = document.getElementById("Herbs");
+  const dressing = document.getElementById("Dressing");
+
 
 
   order.addEventListener("click", sizePicker());
