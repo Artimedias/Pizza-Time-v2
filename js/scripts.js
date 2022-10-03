@@ -93,8 +93,7 @@ function orderUp(allPizzas)
         output = output + ("\n A " + localP.size + " " + localP.sauce + " pizza with " + localP.toppings + " and " + localP.dressing + " on top");
     }
     output += ("\n The total price is $" + price + "\n Thank you for dining with us.")
-    console.log(output)
-
+    document.getElementById("output").innerHTML = (output);
 }
 
 

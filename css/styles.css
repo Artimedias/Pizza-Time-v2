@@ -41,3 +41,11 @@
 #finalC {
      visibility: collapse;
   }
+
+#main {
+    visibility: visible;
+}
+
+#output {
+  white-space: pre-line;
+}
