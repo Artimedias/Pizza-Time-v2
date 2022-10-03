@@ -37,7 +37,7 @@ Pizza.prototype.nope = function()
 {
         let newTop = []
         let lastTop = "n"
-        for (i = 0; i < this.toppings.length; i++)
+        for (let i = 0; i < this.toppings.length; i++)
         {
             if (this.toppings[i].charAt(0) === "N" && this.toppings[i].charAt(1) === "o")
             {
@@ -61,7 +61,7 @@ Pizza.prototype.nope = function()
 Pizza.prototype.sorter = function()
 {
     let pizzaString = ""
-    for( i = 1; i < this.toppings.length; i++)
+    for(let i = 1; i < this.toppings.length; i++)
     {
             pizzaString = pizzaString.concat(this.toppings[i]);
             pizzaString += ", ";
@@ -71,6 +71,7 @@ Pizza.prototype.sorter = function()
 
 function workaround (pizza)
 {
+  console.log("reached workaround")
   pizza.nope()
   pizza.money()
   pizza.sorter()
@@ -84,9 +85,8 @@ function orderUp(allPizzas)
     let price = 0
     let localP;
 
-    for (i = -1; i < allPizzas.length; i++)
+    for (let i = 0; i < (allPizzas.length); i++)
     {
-      console.log("run " + i)
         localP = workaround(allPizzas[i]);
         price += localP.cost;
 
