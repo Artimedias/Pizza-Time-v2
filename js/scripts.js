@@ -30,6 +30,7 @@ Pizza.prototype.money = function()
         cash *= 1.25;
     }
     cash *= 1.10
+    
     this.cost = cash.toFixed(2);
 }
 
@@ -71,7 +72,6 @@ Pizza.prototype.sorter = function()
 
 function workaround (pizza)
 {
-  console.log("reached workaround")
   pizza.nope()
   pizza.money()
   pizza.sorter()
@@ -88,7 +88,7 @@ function orderUp(allPizzas)
     for (let i = 0; i < (allPizzas.length); i++)
     {
         localP = workaround(allPizzas[i]);
-        price += localP.cost;
+        price += parseFloat(localP.cost);
 
         output = output + ("\n A " + localP.size + " " + localP.sauce + " pizza with " + localP.toppings + " and " + localP.dressing + " on top");
     }
