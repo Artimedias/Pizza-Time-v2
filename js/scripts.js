@@ -45,8 +45,7 @@ Pizza.prototype.nope = function()
             }
             else if (this.toppings[i] === lastTop)
             {
-                //This pop isnt doing anything, would like some help in figuring out why
-                newTop.pop
+                newTop.pop();
                 
                 newTop.push("Extra " + this.toppings[i])
             }
@@ -56,7 +55,7 @@ Pizza.prototype.nope = function()
             }
         lastTop = this.toppings[i];
         }
-    toppings = newTop;
+    this.toppings = newTop;
 }
 
 Pizza.prototype.sorter = function()
@@ -64,26 +63,34 @@ Pizza.prototype.sorter = function()
     let pizzaString = ""
     for( i = 1; i < this.toppings.length; i++)
     {
-            pizzaString = pizzaString.concat(element);
+            pizzaString = pizzaString.concat(this.toppings[i]);
             pizzaString += ", ";
     }
     toppings = pizzaString;
+}
+
+function workaround (pizza)
+{
+  pizza.nope()
+  pizza.money()
+  pizza.sorter()
+
+  return pizza;
 }
 
 function orderUp(allPizzas)
 {
     let output = "You Ordered " + allPizzas.length + " Pizzas.";
     let price = 0
+    let localP;
 
-    for (i = 0; i < allPizzas.length; i++)
+    for (i = -1; i < allPizzas.length; i++)
     {
-        console.log( allPizzas[i])
-        //extremely weird issue here, for some reason using this method is making allPizzas[i] undefined. 
-        allPizzas[i].nope()
-        //allPizzas[i].money()
-        //price += allPizzas[i].cost;
-        console.log( allPizzas[i])
-        output = output + ("\n A " + allPizzas[i].size + " " + allPizzas[i].sauce + " pizza with " + allPizzas[i].toppings + " with " + allPizzas[i].dressing + " on top");
+      console.log("run " + i)
+        localP = workaround(allPizzas[i]);
+        price += localP.cost;
+
+        output = output + ("\n A " + localP.size + " " + localP.sauce + " pizza with " + localP.toppings + " and " + localP.dressing + " on top");
     }
     output += ("\n The total price is $" + price + "\n Thank you for dining with us.")
     console.log(output)
